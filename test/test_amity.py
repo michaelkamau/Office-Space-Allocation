@@ -1,5 +1,5 @@
 import unittest
-from office_space_allocation import amity, person, fellow
+from office_space_allocation import amity, person, fellow, staff
 
 
 class TestAmityClassStructure(unittest.TestCase):
@@ -28,6 +28,12 @@ class TestAmityClassStructure(unittest.TestCase):
         self.fellow = fellow.Fellow()
         self.assertIsInstance(self.fellow, fellow.Fellow)
 
+    def test_can_create_staff_instance(self):
+        """
+        Should be able to create instance of the Staff class
+        """
+        self.staff = staff.Staff()
+        self.assertIsInstance(self.staff, staff.Staff)
 
 if __name__ == '__main__':
     unittest.main()
