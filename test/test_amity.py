@@ -77,5 +77,12 @@ class TestAmityClassStructure(unittest.TestCase):
         self.office = office.Office()
         self.assertIsInstance(self.office, room.Room)
 
+    def test_livingroom_subclasses_room(self):
+        """
+        LivingRoom class should subclass Room class
+        """
+        self.livroom = livingroom.LivingRoom()
+        self.assertIsInstance(self.livroom, room.Room)
+
 if __name__ == '__main__':
     unittest.main()
