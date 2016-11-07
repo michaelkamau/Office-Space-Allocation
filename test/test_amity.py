@@ -25,7 +25,7 @@ class TestAmityClassStructure(unittest.TestCase):
         """
         Should be able to create instance of Fellow class
         """
-        self.fellow = fellow.Fellow()
+        self.fellow = fellow.Fellow("Ken", "Mitch")
         self.assertIsInstance(self.fellow, fellow.Fellow)
 
     def test_can_create_staff_instance(self):
@@ -60,7 +60,7 @@ class TestAmityClassStructure(unittest.TestCase):
         """
         Fellow should be a subclass of the Person class
         """
-        self.f1 = fellow.Fellow()
+        self.f1 = fellow.Fellow("Mary", "Jane")
         self.assertIsInstance(self.f1, person.Person)
 
 if __name__ == '__main__':
