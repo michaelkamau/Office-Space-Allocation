@@ -32,7 +32,7 @@ class TestAmityClassStructure(unittest.TestCase):
         """
         Should be able to create instance of the Staff class
         """
-        self.staff = staff.Staff()
+        self.staff = staff.Staff("Jack", "Bauer")
         self.assertIsInstance(self.staff, staff.Staff)
 
     def test_can_create_room_instance(self):
@@ -67,7 +67,7 @@ class TestAmityClassStructure(unittest.TestCase):
         """
         Staff should be a subclass of the Person class
         """
-        self.staff = staff.Staff()
+        self.staff = staff.Staff("King", "Kong")
         self.assertIsInstance(self.staff, person.Person)
 
 if __name__ == '__main__':
