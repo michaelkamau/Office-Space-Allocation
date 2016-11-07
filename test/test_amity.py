@@ -63,5 +63,12 @@ class TestAmityClassStructure(unittest.TestCase):
         self.f1 = fellow.Fellow("Mary", "Jane")
         self.assertIsInstance(self.f1, person.Person)
 
+    def test_staff_is_subclass_of_person(self):
+        """
+        Staff should be a subclass of the Person class
+        """
+        self.staff = staff.Staff()
+        self.assertIsInstance(self.staff, person.Person)
+
 if __name__ == '__main__':
     unittest.main()
