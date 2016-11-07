@@ -1,5 +1,5 @@
 import unittest
-from office_space_allocation import amity
+from office_space_allocation import amity, person
 
 class TestAmityClassStructure(unittest.TestCase):
     """
@@ -11,6 +11,13 @@ class TestAmityClassStructure(unittest.TestCase):
         """
         self.amity = amity.Amity()
         self.assertIsInstance(self.amity, amity.Amity)
+
+    def test_can_create_person_instance(self):
+        """
+        Should be able to create an instance of the Person class
+        """
+        self.person = person.Person("John", "Doe")
+        self.assertIsInstance(self.person, person.Person)
 
 if __name__ == '__main__':
     unittest.main()
