@@ -1,5 +1,5 @@
 import unittest
-from office_space_allocation import amity, person, fellow, staff, room, office
+from office_space_allocation import amity, person, fellow, staff, room, office, livingroom
 
 
 class TestAmityClassStructure(unittest.TestCase):
@@ -48,6 +48,13 @@ class TestAmityClassStructure(unittest.TestCase):
         """
         self.office = office.Office()
         self.assertIsInstance(self.office, office.Office)
+
+    def test_can_create_livingroom_instace(self):
+        """
+        Should be able to create instance of the LivingRoom class
+        """
+        self.lroom = livingroom.LivingRoom()
+        self.assertIsInstance(self.lroom, livingroom.LivingRoom)
 
 if __name__ == '__main__':
     unittest.main()
