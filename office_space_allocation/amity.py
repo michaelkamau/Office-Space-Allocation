@@ -34,3 +34,4 @@ class Amity:
         for r in self.all_rooms:
             if name == r.get_name().lower():
                 return r
+        raise ValueError(name + " not found!")
