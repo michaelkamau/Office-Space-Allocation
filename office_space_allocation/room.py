@@ -1,4 +1,5 @@
 from  abc import ABCMeta, abstractmethod
+from office_space_allocation.person import Person
 
 
 class Room(metaclass=ABCMeta):
@@ -35,6 +36,8 @@ class Room(metaclass=ABCMeta):
         :param person:
         :return: ```Person``` person
         """
-        if person in self.occupants:
+        if not isinstance(person, Person):
+            raise TypeError("Argument must be of type Person")
+        elif person in self.occupants:
             self.occupants.remove(person)
             return person
