@@ -186,5 +186,24 @@ class TestRoomClass(unittest.TestCase):
             self.office.remove_person('Cool Guy')
 
 
+class TestAmitySystem(unittest.TestCase):
+    """
+    Tests for the functionality the major components of the system
+    """
+
+    def test_can_add_person_to_list(self):
+        """
+        Should be able to add Person to list of person
+        """
+        self.amity = amity.Amity()
+        self.p1 = fellow.Fellow("New", "Guy")
+        self.p2 = staff.Staff("New", 'Staff')
+        amity.add_person(self.p1)
+        amity.add_person(self.p2)
+        self.assertTupleEqual(
+            (self.amity.all_person[0], self.amity.all_persons[1]),
+            (self.p1, self.p2)
+        )
+
 if __name__ == '__main__':
     unittest.main()
