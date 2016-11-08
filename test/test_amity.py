@@ -74,7 +74,7 @@ class TestAmityClassStructure(unittest.TestCase):
         """
         Office class should subclass Room class
         """
-        self.office = office.Office()
+        self.office = office.Office("Oculus")
         self.assertIsInstance(self.office, room.Room)
 
     def test_livingroom_subclasses_room(self):
