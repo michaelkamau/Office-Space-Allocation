@@ -28,3 +28,13 @@ class Room(metaclass=ABCMeta):
     @abstractmethod
     def add_person(self, person):
         pass
+
+    def remove_person(self, person):
+        """
+        Fetches, removes and returns a Person from the list of occupants in the Room
+        :param person:
+        :return: ```Person``` person
+        """
+        if person in self.occupants:
+            self.occupants.remove(person)
+            return person
