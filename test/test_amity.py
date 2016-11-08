@@ -198,8 +198,8 @@ class TestAmitySystem(unittest.TestCase):
         self.amity = amity.Amity()
         self.p1 = fellow.Fellow("New", "Guy")
         self.p2 = staff.Staff("New", 'Staff')
-        amity.add_person(self.p1)
-        amity.add_person(self.p2)
+        self.amity.add_person(self.p1)
+        self.amity.add_person(self.p2)
         self.assertTupleEqual(
             (self.amity.all_person[0], self.amity.all_persons[1]),
             (self.p1, self.p2)
