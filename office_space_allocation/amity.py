@@ -5,6 +5,14 @@ class Amity:
     # TODO : Complete definition
     def __init__(self):
         self.all_persons = []
+        self.all_rooms = []
+
+    def add_room(self, new_room):
+        """
+        Adds ```Room``` new_room to list of all_rooms
+        :param ```Room``` new_room
+        """
+        self.all_rooms.append(new_room)
 
     def add_person(self, person):
         """
