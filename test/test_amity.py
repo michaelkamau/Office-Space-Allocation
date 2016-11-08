@@ -151,7 +151,7 @@ class TestRoomClass(unittest.TestCase):
         self.office.add_person(self.f2)
 
         self.assertTupleEqual(
-            (self.office.remove_person(self.f2), self.remove_person(self.f1)),
+            (self.office.remove_person(self.f2), self.office.remove_person(self.f1)),
             (self.f2, self.f1)
         )
 
