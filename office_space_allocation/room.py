@@ -24,3 +24,7 @@ class Room(metaclass=ABCMeta):
     @abstractmethod
     def can_accept_occupants(self):
         pass
+
+    @abstractmethod
+    def add_person(self, person):
+        pass
