@@ -103,14 +103,6 @@ class TestRoomClass(unittest.TestCase):
         self.lvroom = livingroom.LivingRoom("Chillout place")
         self.assertEqual(self.lvroom.get_name(), "Chillout Place")
 
-    def test_room_raises_typeerror_when_queried_if_can_accept_occupants(self):
-        """
-        Room class should raise a TypeError when queried id can accept occupants.
-        This is should be implemented in Office or LivingRoom subclasses
-        """
-        self.rm = room.Room("Kitchen")
-        with self.assertRaises(TypeError):
-            self.rm.can_accept_occupants()
 
 if __name__ == '__main__':
     unittest.main()
