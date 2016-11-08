@@ -155,5 +155,25 @@ class TestRoomClass(unittest.TestCase):
             (self.f2, self.f1)
         )
 
+    def test_can_remove_fellows_staff_from_office(self):
+        """
+        Should be able to remove Fellows and Staff from office
+        """
+        self.f1 = fellow.Fellow("Mark", "Mike")
+        self.f2 = fellow.Fellow("JJ", "PP")
+        self.s1 = staff.Staff("FF", "KK")
+        self.s2 = staff.Staff("G", "FF")
+        self.office = office.Office("Small Office")
+        self.office.add_person(self.f1)
+        self.office.add_person(self.f2)
+        self.office.add_person(self.s1)
+        self.office.add_person(self.s2)
+
+        self.assertTupleEqual(
+            (self.office.remove_person(self.s1), self.office.remove_person(self.s2),self.office.remove_person(self.f2),
+             self.office.remove_person(self.f1),),
+            (self.s1, self.s2, self.f2, self.f1)
+        )
+
 if __name__ == '__main__':
     unittest.main()
