@@ -140,6 +140,20 @@ class TestRoomClass(unittest.TestCase):
         with self.assertRaises(InvalidRoomOccupantError):
             self.lroom.add_person(self.staff)
 
+    def test_can_remove_fellow_from_office(self):
+        """
+        Should be able to remove a fellow from office room
+        """
+        self.office = office.Office("Hogwarts")
+        self.f1 = fellow.Fellow("Nan", "Pi")
+        self.f2 = fellow.Fellow("KK", "Brown")
+        self.office.add_person(self.f1)
+        self.office.add_person(self.f2)
+
+        self.assertTupleEqual(
+            (self.office.remove_person(self.f2), self.remove_person(self.f1)),
+            (self.f2, self.f1)
+        )
 
 if __name__ == '__main__':
     unittest.main()
