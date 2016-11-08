@@ -84,5 +84,17 @@ class TestAmityClassStructure(unittest.TestCase):
         self.livroom = livingroom.LivingRoom("Bedroom")
         self.assertIsInstance(self.livroom, room.Room)
 
+
+class TestRoomClass(unittest.TestCase):
+    """
+    Tests the functionality of Room class, and its subclasses LivingRoom and Office
+    """
+    def test_room_has_zero_occupants_by_default(self):
+        """
+        By default, a room created should have zero occupants
+        """
+        self.rm = room.Room("Hogwarts")
+        self.assertEqual(self.rm.get_occupants(), 0)
+
 if __name__ == '__main__':
     unittest.main()
