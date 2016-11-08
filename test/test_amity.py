@@ -1,5 +1,6 @@
 import unittest
 from office_space_allocation import amity, person, fellow, staff, room, office, livingroom
+from office_space_allocation.utilities import InvalidRoomOccupantError
 
 
 class TestAmityClassStructure(unittest.TestCase):
@@ -129,6 +130,15 @@ class TestRoomClass(unittest.TestCase):
         self.office = office.Office("Main Office")
         self.office.add_person(self.staff)
         self.assertEqual(self.staff, self.office.occupants[0])
+
+    def test_livingroom_raise_error_for_addition_of_staff(self):
+        """
+        LivingRoom should raise an InvalidRoomOccupantError exception when Staff tries to join it.
+        """
+        self.staff = staff.Staff("TT", "PP")
+        self.lroom = livingroom.LivingRoom("Livingroom")
+        with self.assertRaises(InvalidRoomOccupantError):
+            self.lroom.add_person(self.staff)
 
 
 if __name__ == '__main__':
