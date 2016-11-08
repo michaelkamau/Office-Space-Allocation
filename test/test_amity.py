@@ -112,6 +112,15 @@ class TestRoomClass(unittest.TestCase):
         self.of.add_person(self.fel)
         self.assertEqual(self.fel, self.of.occupants[0])
 
+    def test_can_add_fellow_to_livingroom_room(self):
+        """
+        Should be able to add fellow to LivingRoom rooms
+        """
+        self.lroom = livingroom.LivingRoom("Kitchen")
+        self.fellow = fellow.Fellow("May", "Teresa")
+        self.lroom.add_person(self.fellow)
+        self.assertEqual(self.fellow, self.lroom.occupants[0])
+
 
 if __name__ == '__main__':
     unittest.main()
