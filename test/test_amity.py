@@ -49,11 +49,11 @@ class TestAmityClassStructure(unittest.TestCase):
         self.office = office.Office()
         self.assertIsInstance(self.office, office.Office)
 
-    def test_can_create_livingroom_instace(self):
+    def test_can_create_livingroom_instance(self):
         """
         Should be able to create instance of the LivingRoom class
         """
-        self.lroom = livingroom.LivingRoom()
+        self.lroom = livingroom.LivingRoom("Bedroom")
         self.assertIsInstance(self.lroom, livingroom.LivingRoom)
 
     def test_fellow_is_subclass_of_person(self):
