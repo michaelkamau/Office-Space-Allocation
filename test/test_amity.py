@@ -240,5 +240,12 @@ class TestAmitySystem(unittest.TestCase):
             (rm2, rm1)
         )
 
+    def test_raises_valueerror_room_not_found(self):
+        """
+        Should raise a ValueError when room is not found
+        """
+        with self.assertRaises(ValueError):
+            self.amity.find_room("No Room Here")
+
 if __name__ == '__main__':
     unittest.main()
