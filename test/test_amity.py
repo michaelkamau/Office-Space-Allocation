@@ -81,7 +81,7 @@ class TestAmityClassStructure(unittest.TestCase):
         """
         LivingRoom class should subclass Room class
         """
-        self.livroom = livingroom.LivingRoom()
+        self.livroom = livingroom.LivingRoom("Bedroom")
         self.assertIsInstance(self.livroom, room.Room)
 
 if __name__ == '__main__':
