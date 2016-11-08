@@ -191,11 +191,13 @@ class TestAmitySystem(unittest.TestCase):
     Tests for the functionality the major components of the system
     """
 
+    def setUp(self):
+        self.amity = amity.Amity()
+
     def test_can_add_person_to_list(self):
         """
         Should be able to add Person to list of person
         """
-        self.amity = amity.Amity()
         self.p1 = fellow.Fellow("New", "Guy")
         self.p2 = staff.Staff("New", 'Staff')
         self.amity.add_person(self.p1)
@@ -209,7 +211,6 @@ class TestAmitySystem(unittest.TestCase):
         """
         Should raise a TypeError exception when a non-Person type is added to list
         """
-        self.amity = amity.Amity()
         with self.assertRaises(TypeError):
             self.amity.add_person('Mike Kamau')
 
