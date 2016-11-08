@@ -23,3 +23,14 @@ class Amity:
             raise TypeError("Argument should be of type Person")
         else:
             self.all_persons.append(person)
+
+    def find_room(self, name):
+        """
+        Find a ```Room``` object using name
+        :param name: ```str``` name of the Room to look for
+        :return: ```Room``` object if found
+        """
+        name = name.lower()
+        for r in self.all_rooms:
+            if name == r.get_name().lower():
+                return r

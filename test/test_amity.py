@@ -236,7 +236,7 @@ class TestAmitySystem(unittest.TestCase):
         self.amity.add_room(rm1)
         self.amity.add_room(rm2)
         self.assertTupleEqual(
-            (self.amity.find_room("livingroom 1"), self.amity.find_room("Office 1")),
+            (self.amity.find_room("livingroom 1"), self.amity.find_room("office 1")),
             (rm2, rm1)
         )
 
