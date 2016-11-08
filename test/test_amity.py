@@ -214,6 +214,18 @@ class TestAmitySystem(unittest.TestCase):
         with self.assertRaises(TypeError):
             self.amity.add_person('Mike Kamau')
 
+    def test_can_add_new_room_to_list_rooms(self):
+        """
+        Should be able to add rooms to list of rooms
+        """
+        self.rm1 = office.Office("New Office")
+        self.rm2 = livingroom.LivingRoom("Chillout Room")
+        self.amity.add_room(self.rm1)
+        self.amity.add_room(self.rm2)
+        self.assertTupleEqual(
+            (self.amity.all_rooms[1], self.amity.all_rooms[0]),
+            (self.rm2, self.rm1)
+        )
 
 if __name__ == '__main__':
     unittest.main()
