@@ -96,6 +96,13 @@ class TestRoomClass(unittest.TestCase):
         self.rm = office.Office("Quiet room")
         self.assertEqual(self.rm.get_name(), "Quiet Room")
 
+    def test_get_name_livingroom(self):
+        """
+        Should be able to get name of LivingRoom room, formatted in title case
+        """
+        self.lvroom = livingroom.LivingRoom("Chillout place")
+        self.assertEqual(self.lvroom.get_name(), "Chillout Place")
+
     def test_room_raises_typeerror_when_queried_if_can_accept_occupants(self):
         """
         Room class should raise a TypeError when queried id can accept occupants.
