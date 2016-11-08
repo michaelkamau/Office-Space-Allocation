@@ -46,7 +46,7 @@ class TestAmityClassStructure(unittest.TestCase):
         """
         Should be able to create instance of the Office class
         """
-        self.office = office.Office()
+        self.office = office.Office("Krypton")
         self.assertIsInstance(self.office, office.Office)
 
     def test_can_create_livingroom_instance(self):
