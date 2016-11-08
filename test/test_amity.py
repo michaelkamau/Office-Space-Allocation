@@ -82,11 +82,11 @@ class TestRoomClass(unittest.TestCase):
     """
     Tests the functionality of Room class, and its subclasses LivingRoom and Office
     """
-    def test_room_has_zero_occupants_by_default(self):
+    def test_office_room_has_zero_occupants_by_default(self):
         """
-        By default, a room created should have zero occupants
+        By default, a Office room created should have zero occupants
         """
-        self.rm = room.Room("Hogwarts")
+        self.rm = office.Office("Hogwarts")
         self.assertEqual(self.rm.get_occupants(), 0)
 
     def test_get_name_office_room(self):
