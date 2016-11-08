@@ -83,6 +83,7 @@ class TestRoomClass(unittest.TestCase):
     """
     Tests the functionality of Room class, and its subclasses LivingRoom and Office
     """
+
     def test_office_room_has_zero_occupants_by_default(self):
         """
         By default, a Office room created should have zero occupants
@@ -170,10 +171,20 @@ class TestRoomClass(unittest.TestCase):
         self.office.add_person(self.s2)
 
         self.assertTupleEqual(
-            (self.office.remove_person(self.s1), self.office.remove_person(self.s2),self.office.remove_person(self.f2),
+            (self.office.remove_person(self.s1), self.office.remove_person(self.s2), self.office.remove_person(self.f2),
              self.office.remove_person(self.f1),),
             (self.s1, self.s2, self.f2, self.f1)
         )
+
+    def test_raises_exception_when_removing_non_person_type(self):
+        """
+        Should raise TypeError exception when a non-Person type is removed from the room
+        """
+        self.office = office.Office("Strange Office")
+        self.fellow = fellow.Fellow("Cool", "Guy")
+        with self.assertRaises(TypeError):
+            self.office.remove_person('Cool Guy')
+
 
 if __name__ == '__main__':
     unittest.main()
