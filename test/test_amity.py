@@ -96,5 +96,12 @@ class TestRoomClass(unittest.TestCase):
         self.rm = room.Room("Hogwarts")
         self.assertEqual(self.rm.get_occupants(), 0)
 
+    def test_get_name(self):
+        """
+        Should return the name of the room, formatted in title case
+        """
+        self.rm = room.Room("Quiet room")
+        self.assertEqual(self.rm.get_name(), "Quiet Room")
+
 if __name__ == '__main__':
     unittest.main()
