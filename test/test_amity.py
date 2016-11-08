@@ -89,11 +89,11 @@ class TestRoomClass(unittest.TestCase):
         self.rm = room.Room("Hogwarts")
         self.assertEqual(self.rm.get_occupants(), 0)
 
-    def test_get_name(self):
+    def test_get_name_office_room(self):
         """
-        Should return the name of the room, formatted in title case
+        Should return the name of the office room, formatted in title case
         """
-        self.rm = room.Room("Quiet room")
+        self.rm = office.Office("Quiet room")
         self.assertEqual(self.rm.get_name(), "Quiet Room")
 
     def test_room_raises_typeerror_when_queried_if_can_accept_occupants(self):
