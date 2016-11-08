@@ -205,5 +205,14 @@ class TestAmitySystem(unittest.TestCase):
             (self.p1, self.p2)
         )
 
+    def test_raises_typeerror_exception_when_adding_non_person_to_list(self):
+        """
+        Should raise a TypeError exception when a non-Person type is added to list
+        """
+        self.amity = amity.Amity()
+        with self.assertRaises(TypeError):
+            self.amity.add_person('Mike Kamau')
+
+
 if __name__ == '__main__':
     unittest.main()
