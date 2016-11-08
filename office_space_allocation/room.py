@@ -1,3 +1,4 @@
 class Room:
     #TODO: complete class definition
-    pass
+    def __init__(self, name):
+        self.name = name
