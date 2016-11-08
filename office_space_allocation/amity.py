@@ -11,4 +11,7 @@ class Amity:
         Adds a new Person to list of persons
         :param: ```Person``` person
         """
-        self.all_persons.append(person)
+        if not isinstance(person, Person):
+            raise TypeError("Argument should be of type Person")
+        else:
+            self.all_persons.append(person)
