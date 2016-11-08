@@ -201,7 +201,7 @@ class TestAmitySystem(unittest.TestCase):
         self.amity.add_person(self.p1)
         self.amity.add_person(self.p2)
         self.assertTupleEqual(
-            (self.amity.all_person[0], self.amity.all_persons[1]),
+            (self.amity.all_persons[0], self.amity.all_persons[1]),
             (self.p1, self.p2)
         )
 
