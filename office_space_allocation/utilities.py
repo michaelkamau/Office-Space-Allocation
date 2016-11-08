@@ -1,0 +1,2 @@
+class InvalidRoomOccupantError(Exception):
+    pass
