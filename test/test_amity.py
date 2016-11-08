@@ -35,13 +35,6 @@ class TestAmityClassStructure(unittest.TestCase):
         self.staff = staff.Staff("Jack", "Bauer")
         self.assertIsInstance(self.staff, staff.Staff)
 
-    def test_can_create_room_instance(self):
-        """
-        Should be able to create instance of the Room class
-        """
-        self.room = room.Room("Hogwarts")
-        self.assertIsInstance(self.room, room.Room)
-
     def test_can_create_office_instance(self):
         """
         Should be able to create instance of the Office class
