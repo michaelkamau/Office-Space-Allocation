@@ -39,7 +39,7 @@ class TestAmityClassStructure(unittest.TestCase):
         """
         Should be able to create instance of the Room class
         """
-        self.room = room.Room()
+        self.room = room.Room("Hogwarts")
         self.assertIsInstance(self.room, room.Room)
 
     def test_can_create_office_instance(self):
