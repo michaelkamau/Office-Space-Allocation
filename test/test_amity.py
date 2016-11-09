@@ -268,20 +268,25 @@ class TestAmitySystem(unittest.TestCase):
         """
         Should raise an Exception if Person wants to join a Room that is already full
         """
-        # fill the LivingRoom
-        office_rm = office.Office("Living Room")
+        # fill the Office Room
+        office_rm = office.Office("Office Room")
+        self.amity.add_room(office_rm)
         p1 = fellow.Fellow("PP", "GG")
         p2 = fellow.Fellow("GG", "GGG")
         p3 = staff.Staff("VV", "GGG")
         p4 = staff.Staff("RRR", "TTT")
         p5 = fellow.Fellow("TTT", "REEE")
+        p6 = staff.Staff("HHH", "MMM")
+        p7 = fellow.Fellow("HHH", "RRR")
 
         with self.assertRaises(RoomFullError):
-            office_rm.add_person(p1)
-            office_rm.add_person(p2)
-            office_rm.add_person(p3)
-            office_rm.add_person(p4)
-            office_rm.add_person(p5)
+            self.amity.allocate_room(p1)
+            self.amity.allocate_room(p2)
+            self.amity.allocate_room(p3)
+            self.amity.allocate_room(p4)
+            self.amity.allocate_room(p5)
+            self.amity.allocate_room(p6)
+            self.amity.allocate_room(p7)
 
 if __name__ == '__main__':
     unittest.main()
