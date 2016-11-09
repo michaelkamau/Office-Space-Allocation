@@ -11,7 +11,6 @@ class Office(Room):
         # Check if room is full
         if self.can_accept_occupants():
             self.occupants.append(person)
-            print("Occupants: ", self.get_occupants())
         else:
             raise RoomFullError("Room is full!")
 

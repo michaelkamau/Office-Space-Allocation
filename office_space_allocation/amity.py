@@ -69,7 +69,6 @@ class Amity:
             else:
                 office_rm = random.choice(self.all_rooms)
                 office_rm.add_person(person)
-                print("Added: ", office_rm.get_occupants_tuple()[-1])
                 self.allocated_rooms.append(office_rm)
                 return office_rm
         else:
