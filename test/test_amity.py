@@ -1,6 +1,6 @@
 import unittest
 from office_space_allocation import amity, person, fellow, staff, room, office, livingroom
-from office_space_allocation.utilities import InvalidRoomOccupantError
+from office_space_allocation.utilities import InvalidRoomOccupantError, RoomFullError
 
 
 class TestAmityClassStructure(unittest.TestCase):
@@ -264,6 +264,24 @@ class TestAmitySystem(unittest.TestCase):
 
         self.assertEqual(fel, fel_room.get_occupants_tuple()[0])
 
+    def test_raises_exception_when_room_is_full(self):
+        """
+        Should raise an Exception if Person wants to join a Room that is already full
+        """
+        # fill the LivingRoom
+        office_rm = office.Office("Living Room")
+        p1 = fellow.Fellow("PP", "GG")
+        p2 = fellow.Fellow("GG", "GGG")
+        p3 = staff.Staff("VV", "GGG")
+        p4 = staff.Staff("RRR", "TTT")
+        p5 = fellow.Fellow("TTT", "REEE")
+
+        with self.assertRaises(RoomFullError):
+            office_rm.add_person(p1)
+            office_rm.add_person(p2)
+            office_rm.add_person(p3)
+            office_rm.add_person(p4)
+            office_rm.add_person(p5)
 
 if __name__ == '__main__':
     unittest.main()
