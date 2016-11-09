@@ -2,6 +2,8 @@ from office_space_allocation.person import Person
 from office_space_allocation.fellow import Fellow
 from office_space_allocation.staff import Staff
 from office_space_allocation.livingroom import LivingRoom
+from office_space_allocation.office import Office
+from office_space_allocation.utilities import RoomFullError
 import random
 
 
@@ -49,24 +51,26 @@ class Amity:
         :param person: ```Person``` to allocate room
         :return: room : ```Room``` allocated , if possible
         """
-        if isinstance(person, Fellow):
+        if isinstance(person, Staff):
+            # allocate only offices
+            offices = [of for of in self.all_rooms if isinstance(of, Office)]
+            if len(offices) < 1:
+                raise IndexError("There are no more Office rooms to allocate")
+            else:
+                rm = random.choice(offices)
+
+                rm.add_person(person)
+                self.allocated_rooms.append(rm)
+                return rm
+        elif isinstance(person, Fellow):
             # raise exception if there are no rooms
             if len(self.all_rooms) < 1:
                 raise IndexError("There are no available rooms")
             else:
-                rm = random.choice(self.all_rooms)
-                rm.add_person(person)
-                self.allocated_rooms.append(rm)
-                return rm
-        elif isinstance(person, Staff):
-            # allocate only livingrooms
-            livingrooms = [lr for lr in self.all_rooms if isinstance(lr, LivingRoom)]
-            if len(livingrooms) < 1:
-                raise IndexError("There are no more LivingRooms to allocate")
-            else:
-                rm = random.choice(livingrooms)
-                rm.add_person(person)
-                self.allocated_rooms.append(rm)
-                return rm
+                office_rm = random.choice(self.all_rooms)
+                office_rm.add_person(person)
+                print("Added: ", office_rm.get_occupants_tuple()[-1])
+                self.allocated_rooms.append(office_rm)
+                return office_rm
         else:
             raise TypeError("Person argument must be of type Staff or Fellow")
