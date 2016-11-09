@@ -289,6 +289,37 @@ class TestAmitySystem(unittest.TestCase):
             self.amity.allocate_room(p6)
             self.amity.allocate_room(p7)
 
+    def test_can_reallocate_person_to_another_room(self):
+        """
+        Should be able to reallocate Person to another Room
+        """
+        # create three rooms
+        rm1 = office.Office("Room 1")
+        rm2 = office.Office("Room 2")
+        rm3 = office.Office("Room 3")
+
+        self.amity.add_room(rm1)
+        self.amity.add_room(rm2)
+        self.amity.add_room(rm3)
+
+        #  Persons
+        p1 = fellow.Fellow("Fellow", "1")
+        p2 = fellow.Fellow("Fellow", "2")
+        p3 = staff.Staff("Staff", "1")
+
+        # add Persons to Rooms
+        fellow_one_room = self.amity.allocate_room(p1)
+        fellow_two_room = self.amity.allocate_room(p2)
+        staff_one_room = self.amity.allocate_room(p3)
+
+        self.amity.reallocate_person("fellow 1", fellow_two_room)
+        self.amity.reallocate_person("fellow 2", fellow_one_room)
+        self.amity.reallocate_person("Staff 1", fellow_two_room)
+
+        self.assertIn(p1, fellow_two_room.get_occupants_tuple()) and \
+        self.assertIn(p2, fellow_one_room.get_occupants_tuple()) and \
+        self.assertIn(p3, fellow_two_room.get_occupants_tuple())
+
 
 if __name__ == '__main__':
     unittest.main()
