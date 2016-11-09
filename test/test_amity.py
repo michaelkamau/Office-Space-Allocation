@@ -262,7 +262,7 @@ class TestAmitySystem(unittest.TestCase):
 
         fel_room = self.amity.allocate_room(fel)
 
-        self.assertEqual(fel, fel_room.get_occupants[0])
+        self.assertEqual(fel, fel_room.get_occupants_tuple()[0])
 
 
 if __name__ == '__main__':
