@@ -3,6 +3,9 @@ class Person:
         self.first_name = fname
         self.last_name = lname
 
+    def __str__(self):
+        return self.get_full_name()
+
     def get_full_name(self):
         """
         Returns the Person full name

@@ -4,6 +4,9 @@ from office_space_allocation.utilities import RoomFullError
 
 
 class Office(Room):
+    def __str__(self):
+        return "Office: {}".format(self.get_name())
+
     def add_person(self, person):
         """
         Adds Person ```person``` to the list of occupants of the Office room

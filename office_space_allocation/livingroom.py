@@ -5,6 +5,9 @@ from office_space_allocation.utilities import InvalidRoomOccupantError, RoomFull
 
 
 class LivingRoom(Room):
+    def __str__(self):
+        return "LivingSpace: {}".format(self.get_name())
+
     def add_person(self, person):
         """
         Adds ```Person``` person to the list of occupants of the LivingRoom

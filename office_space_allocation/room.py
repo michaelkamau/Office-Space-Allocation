@@ -8,6 +8,9 @@ class Room(metaclass=ABCMeta):
         self.name = name
         self.occupants = []
 
+    def __str__(self):
+        pass
+
     def get_occupants_tuple(self):
         # TODO: Test this
         return tuple(self.occupants)
