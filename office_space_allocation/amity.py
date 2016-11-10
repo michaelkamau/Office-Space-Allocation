@@ -83,4 +83,7 @@ class Amity:
         """
         name = name.strip()
         res = [p for p in self.all_persons if name.title() in p.get_full_name()]
-        return tuple(res)
+        if not res:
+            raise Exception("Person was not found in the system")
+        else:
+            return tuple(res)
