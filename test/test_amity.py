@@ -334,7 +334,7 @@ class TestAmitySystem(unittest.TestCase):
         self.amity.add_person(p2)
 
         self.assertTupleEqual(
-            (p2, p1),
+            ((p2,), (p1,)),
             (self.amity.find_person("mary jane"), self.amity.find_person("kamau"))
         )
 
