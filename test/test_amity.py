@@ -348,7 +348,7 @@ class TestPersonClass(unittest.TestCase):
         """
         Should be able to get the Person full name
         """
-        p1 = person.Person("Mike", "Kamau")
+        p1 = person.Person("mike", "kamau")
         self.assertEqual("Mike Kamau",p1.get_full_name())
 
 if __name__ == '__main__':
