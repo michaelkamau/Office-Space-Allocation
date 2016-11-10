@@ -321,8 +321,8 @@ class TestAmitySystem(unittest.TestCase):
         self.amity.reallocate_person("fellow 2", fellow_one_room.get_name())
         self.amity.reallocate_person("Staff 1", fellow_two_room.get_name())
 
-        self.assertIn(p1, fellow_two_room.get_occupants_tuple()) and \
-        self.assertIn(p2, fellow_one_room.get_occupants_tuple()) and \
+        self.assertIn(p1, fellow_two_room.get_occupants_tuple())
+        self.assertIn(p2, fellow_one_room.get_occupants_tuple())
         self.assertIn(p3, fellow_two_room.get_occupants_tuple())
 
     def test_can_find_person_by_name(self):
