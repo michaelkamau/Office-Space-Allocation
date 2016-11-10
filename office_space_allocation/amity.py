@@ -82,5 +82,5 @@ class Amity:
         :return: a tuple with Person(s) objects found in the list if persons
         """
         name = name.strip()
-        res = [p for p in self.all_rooms if name.title() in p.get_full_name()]
+        res = [p for p in self.all_persons if name.title() in p.get_full_name()]
         return tuple(res)
