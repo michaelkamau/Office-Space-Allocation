@@ -307,14 +307,19 @@ class TestAmitySystem(unittest.TestCase):
         p2 = fellow.Fellow("Fellow", "2")
         p3 = staff.Staff("Staff", "1")
 
+        # add Persons to Amity
+        self.amity.add_person(p1)
+        self.amity.add_person(p2)
+        self.amity.add_person(p3)
+
         # add Persons to Rooms
         fellow_one_room = self.amity.allocate_room(p1)
         fellow_two_room = self.amity.allocate_room(p2)
         staff_one_room = self.amity.allocate_room(p3)
 
-        self.amity.reallocate_person("fellow 1", fellow_two_room)
-        self.amity.reallocate_person("fellow 2", fellow_one_room)
-        self.amity.reallocate_person("Staff 1", fellow_two_room)
+        self.amity.reallocate_person("fellow 1", fellow_two_room.get_name())
+        self.amity.reallocate_person("fellow 2", fellow_one_room.get_name())
+        self.amity.reallocate_person("Staff 1", fellow_two_room.get_name())
 
         self.assertIn(p1, fellow_two_room.get_occupants_tuple()) and \
         self.assertIn(p2, fellow_one_room.get_occupants_tuple()) and \
