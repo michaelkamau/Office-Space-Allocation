@@ -321,6 +321,8 @@ class TestAmitySystem(unittest.TestCase):
         self.assertIn(p2, fellow_one_room.get_occupants_tuple()) and \
         self.assertIn(p3, fellow_two_room.get_occupants_tuple())
 
+    # TODO: RUN This later
+    @unittest.skip("To be completed")
     def test_can_find_person_by_name(self):
         """
         Should be able to find Person in the system using Person name
