@@ -289,7 +289,6 @@ class TestAmitySystem(unittest.TestCase):
             self.amity.allocate_room(p6)
             self.amity.allocate_room(p7)
 
-    @unittest.skip("Not yet complete ...")
     def test_can_reallocate_person_to_another_room(self):
         """
         Should be able to reallocate Person to another Room
