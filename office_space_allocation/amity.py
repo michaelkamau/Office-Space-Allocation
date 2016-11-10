@@ -109,6 +109,12 @@ class Amity:
         except ValueError:
             raise
 
+        # remove person in current room
+        # TODO: Add error checking if person is not in any room
+        for r in self.all_rooms:
+            if person in r.get_occupants_tuple():
+                r.remove_person(person)
+
         # add person to room
         try:
             room.add_person(person)
