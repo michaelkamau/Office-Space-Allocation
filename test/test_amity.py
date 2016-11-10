@@ -289,6 +289,7 @@ class TestAmitySystem(unittest.TestCase):
             self.amity.allocate_room(p6)
             self.amity.allocate_room(p7)
 
+    @unittest.skip("Not yet complete ...")
     def test_can_reallocate_person_to_another_room(self):
         """
         Should be able to reallocate Person to another Room
@@ -319,6 +320,21 @@ class TestAmitySystem(unittest.TestCase):
         self.assertIn(p1, fellow_two_room.get_occupants_tuple()) and \
         self.assertIn(p2, fellow_one_room.get_occupants_tuple()) and \
         self.assertIn(p3, fellow_two_room.get_occupants_tuple())
+
+    def test_can_find_person_by_name(self):
+        """
+        Should be able to find Person in the system using Person name
+        """
+        # add person to amity
+        p1 = fellow.Fellow("Mike", "Kamau")
+        p2 = staff.Staff("Mary", "Jane")
+        self.amity.add_person(p1)
+        self.amity.add_person(p2)
+
+        self.assertTupleEqual(
+            (p2, p1),
+            (self.amity.find_person("mary jane"), self.amity.find_person("kamau"))
+        )
 
 
 if __name__ == '__main__':
