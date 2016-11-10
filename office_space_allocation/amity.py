@@ -1,7 +1,7 @@
 from office_space_allocation.person import Person
 from office_space_allocation.fellow import Fellow
 from office_space_allocation.staff import Staff
-from office_space_allocation.utilities import RoomFullError,  InvalidRoomOccupantError
+from office_space_allocation.utilities import RoomFullError,  InvalidRoomOccupantError, MultiplePeopleFoundException
 from office_space_allocation.livingroom import LivingRoom
 from office_space_allocation.office import Office
 from office_space_allocation.utilities import RoomFullError
@@ -101,9 +101,15 @@ class Amity:
         room_name = room_name.strip()
 
         try:
-            person = self.find_person(person_name)
+            # only one person should be found
+            people_found = self.find_person(person_name)
+            if len(people_found) > 1:
+                raise MultiplePeopleFoundException
+            else:
+                person = people_found[0]
         except Exception:
             raise
+
         try:
             room = self.find_room(room_name)
         except ValueError:
@@ -114,6 +120,7 @@ class Amity:
         for r in self.all_rooms:
             if person in r.get_occupants_tuple():
                 r.remove_person(person)
+                break
 
         # add person to room
         try:
