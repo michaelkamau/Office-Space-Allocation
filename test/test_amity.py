@@ -336,6 +336,13 @@ class TestAmitySystem(unittest.TestCase):
             (self.amity.find_person("mary jane"), self.amity.find_person("kamau"))
         )
 
+    def test_raises_exception_if_person_not_found(self):
+        """
+        Should raise an Exception if Person being searched is not found
+        """
+        with self.assertRaises(Exception):
+            self.amity.find_person("michael kamau")
+
 
 class TestPersonClass(unittest.TestCase):
     """
@@ -347,7 +354,8 @@ class TestPersonClass(unittest.TestCase):
         Should be able to get the Person full name
         """
         p1 = person.Person("mike", "kamau")
-        self.assertEqual("Mike Kamau",p1.get_full_name())
+        self.assertEqual("Mike Kamau", p1.get_full_name())
+
 
 if __name__ == '__main__':
     unittest.main()
