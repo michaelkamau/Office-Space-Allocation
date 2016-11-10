@@ -5,6 +5,9 @@ from office_space_allocation.utilities import InvalidRoomOccupantError, RoomFull
 
 
 class LivingRoom(Room):
+    def __repr__(self):
+        return "LivingSpace: {}".format(self.get_name())
+
     def __str__(self):
         return "LivingSpace: {}".format(self.get_name())
 

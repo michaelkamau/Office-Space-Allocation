@@ -4,6 +4,9 @@ from office_space_allocation.utilities import RoomFullError
 
 
 class Office(Room):
+    def __repr__(self):
+        return "Office: {}".format(self.get_name())
+
     def __str__(self):
         return "Office: {}".format(self.get_name())
 
