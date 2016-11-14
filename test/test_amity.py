@@ -367,9 +367,9 @@ class TestDatabaseOperations(unittest.TestCase):
         self.amity = amity.Amity()
 
     @unittest.skip("Test not complete")
-    def test_can_save_application_state_to_sqlite_database(self):
+    def test_can_save_retrieve_application_state_to_sqlite_database(self):
         """
-        Should be able to save all application state to sqlite database
+        Should be able to save and retrieve all application state to sqlite database
         """
         # add rooms
         self.rm1 = office.Office("Main Office")
