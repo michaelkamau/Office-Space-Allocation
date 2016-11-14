@@ -308,30 +308,18 @@ class TestAmitySystem(unittest.TestCase):
 
         # add Persons to Amity
         self.amity.add_person(p1)
-        print(self.amity.all_rooms)
         # add Persons to Rooms
         room1 = self.amity.allocate_room(p1)
-        print(room1, " allocated: ", room1.get_occupants_tuple())
 
         # reallocate p1 to another room
-        print(room1, " occupants: ", room1.occupants)
-        print("reallocating to ", rm2)
         self.amity.reallocate_person("fellow 1", rm2.name)
-        print(room1, " occupants: ", room1.occupants)
-        print(rm2, " occupants: ", rm2.get_occupants_tuple())
         self.assertIn(p1, rm2.get_occupants_tuple())
         # reallocate p1 from rm2 to rm3
-        print("reallocating to ", rm3)
         self.amity.reallocate_person("Fellow 1", rm3.get_name())
-        print(rm3, " occupants: ", rm3.get_occupants_tuple())
-        print(rm2, " occupants: ", rm2.get_occupants_tuple())
         self.assertIn(p1, rm3.get_occupants_tuple())
 
         # reallocate p1 from rm3 to rm1
-        print(rm1, " occupants: ", rm1.get_occupants_tuple())
         self.amity.reallocate_person("fellow 1", rm1.get_name())
-        print(rm1, " occupants: ", rm1.get_occupants_tuple())
-        print(rm3, " occupants: ", rm3.get_occupants_tuple())
         self.assertIn(p1, rm1.get_occupants_tuple())
 
     def test_can_find_person_by_name(self):
