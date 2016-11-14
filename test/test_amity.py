@@ -289,7 +289,7 @@ class TestAmitySystem(unittest.TestCase):
             self.amity.allocate_room(p6)
             self.amity.allocate_room(p7)
 
-    #@unittest.skip("Reallocation Test")
+    # @unittest.skip("Reallocation Test")
     def test_can_reallocate_person_to_another_room(self):
         """
         Should be able to reallocate Person to another Room
@@ -369,6 +369,46 @@ class TestPersonClass(unittest.TestCase):
         p1 = person.Person("mike", "kamau")
         self.assertEqual("Mike Kamau", p1.get_full_name())
 
+
+class TestDatabaseOperations(unittest.TestCase):
+    """
+    Tests operations performed when saving or retrieving application state in a sqlite database
+    """
+
+    def setUp(self):
+        self.amity = amity.Amity()
+
+    def test_can_save_application_state_to_sqlite_database(self):
+        """
+        Should be able to save all application state to sqlite database
+        """
+        # add rooms
+        self.rm1 = office.Office("Main Office")
+        self.rm2 = livingroom.LivingRoom("Living Space")
+        self.amity.add_room(self.rm1)
+        self.amity.add_room(self.rm2)
+        # add persons
+        self.p1 = staff.Staff("Mary", "mary")
+        self.p2 = fellow.Fellow("Jack", "Bauer")
+        self.amity.add_person(self.p1)
+        self.amity.add_person(self.p2)
+        # allocate rooms
+        self.amity.allocate_room(self.p2)
+        self.amity.allocate_room(self.p1)
+
+        # save state
+        db.save_state(self.amity, 'test_db')
+
+        # make another system
+        self.another_amity = amity.Amity()
+
+        # retrieve stored state
+        self.state = db.load_state(self.another_amity, 'test_db')
+
+        self.assertTupleEqual(
+            (self.amity.all_rooms, self.amity.all_persons),
+            self.state
+        )
 
 if __name__ == '__main__':
     unittest.main()
