@@ -1,7 +1,7 @@
 import unittest
 from office_space_allocation import amity, person, fellow, staff, room, office, livingroom
 from office_space_allocation.utilities import InvalidRoomOccupantError, RoomFullError
-
+from office_space_allocation import db
 
 class TestAmityClassStructure(unittest.TestCase):
     """
@@ -378,6 +378,7 @@ class TestDatabaseOperations(unittest.TestCase):
     def setUp(self):
         self.amity = amity.Amity()
 
+    @unittest.skip("Test not complete")
     def test_can_save_application_state_to_sqlite_database(self):
         """
         Should be able to save all application state to sqlite database
